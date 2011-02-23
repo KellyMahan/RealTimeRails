@@ -26,4 +26,6 @@ Ideas
 
 * The render :real_time would wrap the content in a div with a unique id and include javascript needed to open the websocket connection and add a listener.
 
+* Updates sent to the websocket server with on save  on destroy events for active record objects
+
 *	The gem would also include a server based on em-websocket that can be started with a simple command.
