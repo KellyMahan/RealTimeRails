@@ -14,12 +14,12 @@ During an update to an active record object, the websocket server gets a notice 
 Ideas
 -----
 
-* render :real_time, :locals => {:user => @user}
+* render :real_time => 'partial', :locals => {:user => @user}
 	
 	This would look at the @user variable, recognize what active record object it is, and listen for updates to that specific record for that object.
 
 
-* render :real_time, :locals => {:users => @users}
+* render :real_time => 'partial', :locals => {:users => @users}
 	
 	This would recognize that @users is an array of User objects, somehow get the query used to determine the list and then listen to any update to any User data to requery the db for the @users list.
 
