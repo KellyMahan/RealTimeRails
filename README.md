@@ -24,4 +24,6 @@ Ideas
 	This would recognize that @users is an array of User objects, somehow get the query used to determine the list and then listen to any update to any User data to requery the db for the @users list.
 
 
+* The render :real_time would wrap the content in a div with a unique id and include javascript needed to open the websocket connection and add a listener.
+
 *	The gem would also include a server based on em-websocket that can be started with a simple command.
