@@ -29,3 +29,8 @@ Ideas
 * Updates sent to the websocket server with on save  on destroy events for active record objects
 
 *	The gem would also include a server based on em-websocket that can be started with a simple command.
+
+Disclaimer
+----------
+
+All source code at this point is to portray ideas to further cooperative design. It is not ready for use nor tested for validity.
