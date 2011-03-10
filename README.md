@@ -16,7 +16,7 @@ Ideas
 
 What I know will work
 
-* render :real\_time, :locals => {:users=>@users, :user => @user}, :listen\_for => [{:user => :all}, {:user => @user.id}], :url => {:action => :action\_name, :controller => :controller\_name, :id => @user.id, :other\_param => value}
+* render :real\_time => 'partial', :locals => {:users=>@users, :user => @user}, :listen\_for => [{:user => :all}, {:user => @user.id}], :url => {:action => :action\_name, :controller => :controller\_name, :id => @user.id, :other\_param => value}
 
   This syntax will still likely be included for developers to tweak settings, if not required without being able to accomplish the examples below.
 
