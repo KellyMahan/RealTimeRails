@@ -20,7 +20,7 @@ All source code at this point is to portray ideas to further cooperative design.
 Beta Usage
 ----------
 
-So far i haven't tested this code as a gem, but it did work in a sample project. I'll be testing and tweaking soon.
+The gem is now loading and running correctly in the project. Still some bugs to iron out.
 
 To start the websocket server just run the websocket_server.rb ruby script.
 
