@@ -9,4 +9,3 @@ module RealTimeHelper
 end
 
 
-ActionView::Helper.send :include, RealTimeHelper
