@@ -1,4 +1,4 @@
-module ApplicationHelper
+module RealTimeHelper
   
   def render_real_time(options = {})
     RealTimeRails::RtrHelper.new(options) do
@@ -7,3 +7,6 @@ module ApplicationHelper
   end
   
 end
+
+
+ActionView::Helper.send :include, RealTimeHelper
