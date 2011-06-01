@@ -24,6 +24,10 @@ The gem is now loading and running correctly in the project. Still some bugs to 
 
 To start the websocket server just run the websocket_server.rb ruby script.
 
+Add to your Gemfile
+
+`gem "real_time_rails"`
+
 in your models that you want real time updates
 
 `include RealTimeRails:AR`
