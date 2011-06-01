@@ -1,1 +1,0 @@
-ActionView::Helper.send :include, RealTimeHelper

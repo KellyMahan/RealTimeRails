@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
-    s.name = "RealTimeRails"
-    s.version = '0.0.11' 
+    s.name = "real_time_rails"
+    s.version = '0.0.2' 
     s.platform = Gem::Platform::RUBY
     s.authors = ["Kelly Mahan"]
     s.email = 'kmahan@kmahan.com'
@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
     s.description = 'A gem to enable seamless websocket integration with rails.'
 
 
-    s.rubyforge_project = 'RealTimeRails'
+    s.rubyforge_project = 'real_time_rails'
 
 
     s.files = `git ls-files`.split("\n")

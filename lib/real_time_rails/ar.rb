@@ -3,7 +3,11 @@ module RealTimeRails
   # include RealTimeRails:AR in your model for access to realtime updates.
   module AR
     #after every save send notification to the realtimerails socket server.
-    after_save :send_rtr_update
+    def self.included(klass)
+      klass.send :after_save, :send_rtr_update
+    end
+    
+    private
 
     def send_rtr_update
       # TODO figure out why i have to make 2 connections to send 2 messages instead of just one connection.

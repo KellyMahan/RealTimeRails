@@ -1,4 +1,4 @@
-class RenderRealTimeController < ApplicationController
+class RenderRealTimeController < ActionController::Base
   
   # Updates will pull data from this controller.
   # url in the form of '/render_real_time/id/#{md5_hash_id}'
