@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
     s.name = "real_time_rails"
-    s.version = '0.0.2' 
+    s.version = '0.0.3' 
     s.platform = Gem::Platform::RUBY
     s.authors = ["Kelly Mahan"]
     s.email = 'kmahan@kmahan.com'

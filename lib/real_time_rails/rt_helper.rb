@@ -26,7 +26,7 @@ module RealTimeRails
       set_options
       register_partial
       html = load_javascript
-      html += manual_buttons #TODO remove test helper for ajax update calls. 
+      #html += manual_buttons #TODO remove test helper for ajax update calls. 
       html += wrap_render do
         yield
       end
@@ -112,7 +112,7 @@ module RealTimeRails
     def wrap_render
       html = "<div id='#{@id}' class='real_time_wrapper'>\n"
       html += yield
-      html += @websocket_options.to_yaml # TODO remove debugging data.
+      #html += @websocket_options.to_yaml # TODO remove debugging data.
       html += "</div>\n"
       return html
     end
