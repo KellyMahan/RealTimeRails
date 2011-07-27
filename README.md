@@ -22,7 +22,7 @@ Beta Usage
 
 The gem is now loading and running correctly in the project. Still some bugs to iron out.
 
-To start the websocket server just run the websocket_server.rb ruby script.
+To start the websocket server just run the "real\_time_rails" executable. There is not any configuration options yet, but they should be added soon.
 
 Add to your Gemfile
 
@@ -36,10 +36,8 @@ then in your view that you want a real time update. At this point partial paths 
 
 `render_real_time partial: '/test/test', locals: {chats: @chats}`
 
-I still have a lot of debugging stuff in the view and javascript wrapper so ignore those for now.
-
 
 History
 ----------
 
-0.0.4 Adding RealTimeRails server executable.
+0.0.4 Adding RealTimeRails server executable. start it with "real\_time_rails"
