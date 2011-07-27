@@ -112,6 +112,9 @@ EventMachine.run {
               command = JSON.parse(data)
               puts command
               case command["command"]
+                when "delete1"
+                  channels = find_channels_by_id(command["model"], command["id"])
+                  channels.each{|c| c.push "delete"}
                 when "update1"
                   channels = find_channels_by_id(command["model"], command["id"])
                   channels.each{|c| c.push "update"}

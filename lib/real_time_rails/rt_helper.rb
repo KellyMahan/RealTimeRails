@@ -85,7 +85,10 @@ module RealTimeRails
     def js_start_websocket
       "
       ws_#{@id} = new WebSocket('ws://localhost:8080');
-      ws_#{@id}.onmessage = function(evt) { if(evt.data=='update'){real_time_update_#{@id}()}else{alert(evt.data)}; };
+      ws_#{@id}.onmessage = function(evt) { 
+        if(evt.data=='update'){real_time_update_#{@id}()}; 
+        if(evt.data=='delete'){real_time_delete_#{@id}()};  
+      };
       ws_#{@id}.onclose = function() {  };
       ws_#{@id}.onopen = function() {
         ws_#{@id}.send('#{@websocket_options.to_json}');
@@ -106,6 +109,9 @@ module RealTimeRails
     def js_remote_function
       "function real_time_update_#{@id}(){
         #{remote_function(remote_f_options)}
+      }
+      function real_time_delete_#{@id}(){
+        $('##{@id}').remove;
       }"
     end
 

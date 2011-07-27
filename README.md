@@ -40,4 +40,6 @@ then in your view that you want a real time update. At this point partial paths 
 History
 ----------
 
+0.0.5 Added delete updates
+
 0.0.4 Adding RealTimeRails server executable. start it with "real\_time_rails"
