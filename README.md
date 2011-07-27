@@ -15,7 +15,7 @@ During an update to an active record object, the websocket server gets a notice 
 Disclaimer
 ----------
 
-All source code at this point is to portray ideas to further cooperative design. It is not ready for use nor tested for validity.
+All source code at this point is to portray ideas to further cooperative design. It is not ready for production use nor tested for validity.
 
 Beta Usage
 ----------
