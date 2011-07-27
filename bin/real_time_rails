@@ -1,5 +1,5 @@
 #!/usr/bin/env ruby
-# to start the server just run "ruby websocket_server.rb"
+# to start the server just run "real_time_rails"
 
 require 'em-websocket'
 require 'json'
