@@ -1,6 +1,12 @@
+
+lib = File.expand_path('../lib/', __FILE__)
+$:.unshift lib unless $:.include?(lib)
+
+require 'real_time_rails/version'
+
 Gem::Specification.new do |s|
     s.name = "real_time_rails"
-    s.version = '0.0.3' 
+    s.version = RealTimeRails::VERSION
     s.platform = Gem::Platform::RUBY
     s.authors = ["Kelly Mahan"]
     s.email = 'kmahan@kmahan.com'
@@ -14,7 +20,7 @@ Gem::Specification.new do |s|
 
     s.files = `git ls-files`.split("\n")
     s.test_files = `git ls-files -- {test,spec,features}/*`.split("\n")
-    s.executables = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
+    s.executables = ["real_time_rails"]
     s.require_path = 'lib'
 
 

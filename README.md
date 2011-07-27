@@ -37,3 +37,9 @@ then in your view that you want a real time update. At this point partial paths 
 `render_real_time partial: '/test/test', locals: {chats: @chats}`
 
 I still have a lot of debugging stuff in the view and javascript wrapper so ignore those for now.
+
+
+History
+----------
+
+0.0.4 Adding RealTimeRails server executable.

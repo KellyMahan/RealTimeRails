@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 # to start the server just run "ruby websocket_server.rb"
 
 require 'em-websocket'
@@ -5,11 +6,11 @@ require 'json'
 require 'yaml'
 
 class RTChannel < EM::Channel
-  
+
   attr_accessor   :id,
                   :models,
                   :subscribers
-                  
+                
   def self.create(id, models)
     sid = self.new
     sid.id=id
@@ -17,16 +18,16 @@ class RTChannel < EM::Channel
     sid.subscribers=[]
     return sid
   end
-  
+
   def join(subscriber)
     @subscribers << subscriber
   end
-  
+
   def leave(subscriber, subscription_id)
     @subscribers.delete(subscriber)
     self.unsubscribe(subscription_id)
   end
-  
+
 end
 
 EventMachine.run {
