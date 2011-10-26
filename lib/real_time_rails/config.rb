@@ -1,6 +1,11 @@
 
 module RealTimeRails
   
-  CONFIG = YAML.load_file("#{Rails.root.to_s}/config/realtimerails.yml")[Rails.env.to_s]
-  
+  def self.config
+    @@config_file_options ||= begin
+      config_path = Rails.root.join('config','realtimerails.yml')
+      YAML.load_file(config_path)[Rails.env.to_s]
+    end
+  end
+    
 end
