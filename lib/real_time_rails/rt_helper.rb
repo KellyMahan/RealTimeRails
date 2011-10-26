@@ -84,7 +84,8 @@ module RealTimeRails
     # Adds the wrapper for creating the connection to the websocket server as well as registering for the correct channel on the server.
     def js_start_websocket
       "
-      ws_#{@id} = new WebSocket('ws://localhost:8080');
+      var Socket = \"MozWebSocket\" in window ? MozWebSocket : WebSocket;
+      ws_#{@id} = new Socket('ws://localhost:8080');
       ws_#{@id}.onmessage = function(evt) { 
         if(evt.data=='update'){real_time_update_#{@id}()}; 
         if(evt.data=='delete'){real_time_delete_#{@id}()};  
