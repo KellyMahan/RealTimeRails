@@ -1,5 +1,5 @@
 module RealTimeRails
   
-  VERSION = "0.0.6"
+  VERSION = "0.0.71"
   
 end

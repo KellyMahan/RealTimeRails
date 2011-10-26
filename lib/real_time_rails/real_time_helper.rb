@@ -1,6 +1,8 @@
 module RealTimeRails
-  module RealTimeHelper
   
+  
+  module RealTimeHelper
+    
     def render_real_time(options = {})
       RealTimeRails::RtrHelper.new(options) do
         render options

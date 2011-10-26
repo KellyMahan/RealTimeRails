@@ -85,7 +85,7 @@ module RealTimeRails
     def js_start_websocket
       "
       var Socket = \"MozWebSocket\" in window ? MozWebSocket : WebSocket;
-      ws_#{@id} = new Socket('ws://localhost:8080');
+      ws_#{@id} = new Socket('ws://#{RealTimeRails::CONFIG[:websocket_host]}:#{RealTimeRails::CONFIG[:websocket_port]}');
       ws_#{@id}.onmessage = function(evt) { 
         if(evt.data=='update'){real_time_update_#{@id}()}; 
         if(evt.data=='delete'){real_time_delete_#{@id}()};  
