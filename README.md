@@ -36,9 +36,30 @@ then in your view that you want a real time update. At this point partial paths 
 
 `render_real_time partial: '/test/test', locals: {chats: @chats}`
 
+realtimerails.yml
+-----------------
+
+As of version 7 a config file is required in your rails config directory named realtimerails.yml. In it you can specify the host and ports used to connect to the websocket server. Currently you still cannot change the listening ports with the server executable.
+
+Here is an example.
+
+    development:
+      websocket_host: 127.0.0.1
+      websocket_port: 8080
+      update_host: 127.0.0.1
+      update_port: 2000
+    production:
+      websocket_host: 127.0.0.1
+      websocket_port: 8080
+      update_host: 127.0.0.1
+      update_port: 2000
+  
+
 
 History
 ----------
+
+0.0.73 Added a config file option so the gem can be deployed on a server.
 
 0.0.6 Firefox changed socket name to MozWebSocket, added code to handle this.
 
