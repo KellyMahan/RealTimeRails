@@ -3,6 +3,7 @@ About
 
 RealTimeRails gem to enable seamless websocket integration with rails.
 
+Update: There is now a gem that does virtually the same thing https://github.com/chrismccord/sync
 
 Purpose
 =======
