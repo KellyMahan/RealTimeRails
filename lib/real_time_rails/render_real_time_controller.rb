@@ -1,30 +1,25 @@
-class RenderRealTimeController < ActionController::Base
+class RealTimeRailsController < ActionController::Base
   
   # Updates will pull data from this controller.
   # url in the form of '/render_real_time/id/#{md5_hash_id}'
   # The information is pulled from Rails.cache by the md5 hash id
-  
-  def id
-    websocket_options = YAML.load(Rails.cache.read("real_time_#{params[:id]}"))
-    options = YAML.load(Rails.cache.read("real_time_#{params[:id]}_options"))
-    locals = {}
-    websocket_options[:models].each do |rtmodel|
-      
-      case rtmodel[:type]
-        when :single
-          locals[rtmodel[:key]] = eval("#{rtmodel[:name]}.find(rtmodel[:id])")
-        when :array
-          locals[rtmodel[:key]] = eval("#{rtmodel[:name]}.find(rtmodel[:ids])")
-        when :relation
-          rtmodel[:sql] = rtmodel[:sql].gsub('\"','"')
-          locals[rtmodel[:key]] = eval("#{rtmodel[:name]}.find_by_sql(rtmodel[:sql])") #TODO This needs to recreate the arel object. Not just find_by_sql.
-        else
-          
-      end
+  def update
+    id = params[:id]
+    websocket_options = Yaml.load(Rails.cache.read("real_time_#{id}"))
+    render_options = Yaml.load(Rails.cache.read("real_time_#{id}_options"))
+    model = websocket_options[:model]
+    
+    data = case model[:type]
+    when :single
+      eval(model[:name]).find(model[:id])
+    when :array
+      eval(model[:name]).where(id: model[:ids]).to_a
+    when :relation
+      eval(model[:name]).connection.execute(model[:sql])
     end
-    render :update do |page|
-      page.replace_html params[:id], :partial => options[:partial], :locals => locals
-    end
+    locals = render_options[:locals].merge(model[:key] => data)
+    
+    render partial: render_options[:partial], locals: locals
   end
   
 end

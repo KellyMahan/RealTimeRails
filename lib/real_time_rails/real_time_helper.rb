@@ -1,10 +1,8 @@
 module RealTimeRails
-  
-  
   module RealTimeHelper
-    
+    # used just like render :partial, {options}
     def render_real_time(options = {})
-      RealTimeRails::RtrHelper.new(options) do
+      RealTimeRails::Helper.new(options) do
         render options
       end.html
     end

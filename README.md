@@ -1,28 +1,17 @@
 About
 =====
 
-RealTimeRails gem to enable seamless websocket integration with rails.
+RealTimeRails gem to make actioncable as simple as a render call.
 
 
 Purpose
 =======
 
-Implement a gem that will add a new render method that sets up a connection to a websocket server and notifies the server it's waiting for updates to content related to the specific partial. 
+RealTimeRails gem to make actioncable as simple as a render call. This was an idea I had 4 years ago (check out the branch "old_final"). However making rails/websockets/servers/browsers/etc all work together seamlessly was a little too daunting and I didn't have the time for it. Now that actioncable is here I plan on resurrecting my idea by making it so people don't even have to know how actioncable works to enable real time updates for rails models. With most of the hard work done now with actioncable, I just need to write the helpers and hooks that make it possible.
 
-During an update to an active record object, the websocket server gets a notice from the server to send updates to the connected clients for the content they are listening for.
-
-
-Disclaimer
-----------
-
-All source code at this point is to portray ideas to further cooperative design. It is not ready for production use nor tested for validity.
 
 Beta Usage
 ----------
-
-The gem is now loading and running correctly in the project. Still some bugs to iron out.
-
-To start the websocket server just run the "real\_time_rails" executable. There is not any configuration options yet, but they should be added soon.
 
 Add to your Gemfile
 
@@ -36,28 +25,12 @@ then in your view that you want a real time update. At this point partial paths 
 
 `render_real_time partial: '/test/test', locals: {chats: @chats}`
 
-realtimerails.yml
------------------
-
-As of version 7 a config file is required in your rails config directory named realtimerails.yml. In it you can specify the host and ports used to connect to the websocket server. Currently you still cannot change the listening ports with the server executable.
-
-Here is an example.
-
-    development:
-      websocket_host: 127.0.0.1
-      websocket_port: 8080
-      update_host: 127.0.0.1
-      update_port: 2000
-    production:
-      websocket_host: 127.0.0.1
-      websocket_port: 8080
-      update_host: 127.0.0.1
-      update_port: 2000
-  
-
-
 History
 ----------
+
+New work starts with 0.1.0
+
+---------------------- old_final ------------------------
 
 0.0.73 Added a config file option so the gem can be deployed on a server.
 
