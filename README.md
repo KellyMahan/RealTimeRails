@@ -3,8 +3,6 @@ About
 
 RealTimeRails gem to make actioncable as simple as a render call.
 
-Update: There is now a gem that does virtually the same thing https://github.com/chrismccord/sync
-
 Purpose
 =======
 
