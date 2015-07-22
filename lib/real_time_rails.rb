@@ -1,8 +1,10 @@
 require 'real_time_rails/version.rb'
+require 'real_time_rails/engine.rb'
+require 'real_time_rails/helper.rb'
+require 'real_time_rails/active_record.rb'
+require 'real_time_rails/real_time_cable.rb'
 require 'real_time_rails/real_time_helper.rb'
 require 'real_time_rails/render_real_time_controller.rb'
-require 'real_time_rails/ar.rb'
-require 'real_time_rails/rt_helper.rb'
 
 if defined?(ActionView::Base)
   ActionView::Base.send :include, RealTimeRails::RealTimeHelper
