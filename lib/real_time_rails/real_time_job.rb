@@ -14,10 +14,10 @@ class RealTimeJob < ApplicationJob
   
   def send_rtr_update(object)
     #TODO Write new broadcast messages
-    ApplicationCable.server.broadcast "real_time_rails_#{object.class.name}",
+    ActionCable.server.broadcast "real_time_rails_#{object.class.name}",
       action: "update_list",
       class: "#{object.class.name}"
-    ApplicationCable.server.broadcast "real_time_rails_#{object.class.name}_#{object.id}",
+    ActionCable.server.broadcast "real_time_rails_#{object.class.name}_#{object.id}",
       action: "update",
       class: "#{object.class.name}",
       id: object.id
@@ -26,10 +26,10 @@ class RealTimeJob < ApplicationJob
   
   def send_rtr_destroy(object)
     #TODO Write new broadcast messages
-    ApplicationCable.server.broadcast "real_time_rails_#{object.class.name}",
+    ActionCable.server.broadcast "real_time_rails_#{object.class.name}",
       action: "destroy_list",
       class: "#{object.class.name}"
-    ApplicationCable.server.broadcast "real_time_rails_#{object.class.name}_#{object.id}",
+    ActionCable.server.broadcast "real_time_rails_#{object.class.name}_#{object.id}",
       action: "destroy",
       class: "#{object.class.name}",
       id: object.id
