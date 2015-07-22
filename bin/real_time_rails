@@ -1,2 +1,0 @@
-# /bin/bash
-bundle exec puma -p 28080 vendor/real_time_rails/cable/config.ru
