@@ -32,6 +32,10 @@ then in your view that you want a real time update. At this point partial paths 
 
 `render_real_time partial: "posts/post", real_time: {post: post}, element: "tr"`
 
+Start the cable server
+
+`bundle exec cable`
+
 Issues
 ----------
 
