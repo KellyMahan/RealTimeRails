@@ -31,7 +31,12 @@ Add this to your application.js file just above require_tree .
 
 then in your view that you want a real time update. At this point partial paths must be full view paths.
 
-`render_real_time partial: '/test/test', locals: {chats: @chats}`
+`render_real_time partial: "posts/post", real_time: {post: post}, element: "tr"`
+
+Issues
+----------
+
+Currently I don't have the controller loading into the project correctly. And I still need to find a way to load the channel code from the gem itself. There may be some other bugs but the test project is working. https://github.com/KellyMahan/RealTimeRailsTest
 
 History
 ----------
