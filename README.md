@@ -19,7 +19,11 @@ Add to your Gemfile
 
 in your models that you want real time updates
 
-`include RealTimeRails:AR`
+`include RealTimeRails::ActiveRecord`
+
+Add this to your application.js file just above require_tree .
+
+`//= require real_time_rails`
 
 then in your view that you want a real time update. At this point partial paths must be full view paths.
 
