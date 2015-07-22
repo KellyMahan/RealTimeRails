@@ -17,6 +17,10 @@ Add to your Gemfile
 
 `gem "real_time_rails"`
 
+Run the setup
+
+`rake real_time_rails:setup`
+
 in your models that you want real time updates
 
 `include RealTimeRails::ActiveRecord`
