@@ -16,6 +16,16 @@ namespace :real_time_rails do
       bundle exec puma -p 28080 cable/config.ru
     CABLEEXE
     
+    redis_yml = <<-REDIYML.gsub /^\s+/, ""
+    local: &local
+      :url: redis://localhost:6379
+      :host: localhost
+      :port: 6379
+      :timeout: 1
+      :inline: true
+    development: *local
+    test: *local
+    REDIYML
 
     puts "create: cable/config.ru"
     FileUtils.mkdir_p 'cable'
@@ -45,6 +55,21 @@ namespace :real_time_rails do
       puts
       puts "Below is the standard config:"
       puts cable_exe.gsub(/^/, "\t")
+      puts
+    end
+    
+    puts "create: config/redis/cable.yml"
+    FileUtils.mkdir_p 'config/redis'
+    unless File.exist?(Rails.root.join("config","redis","cable.yml"))
+      File.open(Rails.root.join("config","redis","cable.yml"), "w") do |f|
+        f.write redis_yml
+      end
+      puts "done"
+    else
+      puts "SKIPPING: config/redis/cable.yml already exists"
+      puts
+      puts "Below is the standard config:"
+      puts redis_yml.gsub(/^/, "\t")
       puts
     end
     
