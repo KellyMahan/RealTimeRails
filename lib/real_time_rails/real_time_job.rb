@@ -1,4 +1,4 @@
-class RealTimeJob < ApplicationJob
+class RealTimeJob < ActiveJob::Base
   def perform(object, action)
     case action
     when :update
