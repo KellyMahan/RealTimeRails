@@ -26,6 +26,19 @@ namespace :real_time_rails do
     development: *local
     test: *local
     REDIYML
+    
+    channel_rb = <<-CHANNELSTR
+    class RealTimeRailsChannel < ApplicationCable::Channel
+      def subscribed
+        stop_all_streams
+        stream_from "real_time_rails"
+      end
+
+      def unfollow
+        stop_all_streams
+      end
+    end
+    CHANNELSTR
 
     puts "create: cable/config.ru"
     FileUtils.mkdir_p 'cable'
@@ -70,6 +83,21 @@ namespace :real_time_rails do
       puts
       puts "Below is the standard config:"
       puts redis_yml.gsub(/^/, "\t")
+      puts
+    end
+    
+    puts "create: app/channels/real_time_rails_channel.rb"
+    FileUtils.mkdir_p 'app/channels'
+    unless File.exist?(Rails.root.join("app","channels","real_time_rails_channel.rb"))
+      File.open(Rails.root.join("app","channels","real_time_rails_channel.rb"), "w") do |f|
+        f.write channel_rb
+      end
+      puts "done"
+    else
+      puts "SKIPPING: app/channels/real_time_rails_channel.rb already exists"
+      puts
+      puts "Below is the standard config:"
+      puts channel_rb.gsub(/^/, "\t")
       puts
     end
     

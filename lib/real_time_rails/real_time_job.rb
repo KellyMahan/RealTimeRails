@@ -1,9 +1,12 @@
 class RealTimeJob < ActiveJob::Base
   def perform(object, action)
+    puts "*"*80
+    puts action
+    puts "*"*80
     case action
-    when :update
+    when "update"
       send_rtr_update(object)
-    when :destroy
+    when "destroy"
       send_rtr_destroy(object)
     else
       raise "Not a valid RealTimeRails action"
