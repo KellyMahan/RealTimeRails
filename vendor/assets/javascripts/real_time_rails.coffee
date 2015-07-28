@@ -28,7 +28,7 @@ App.messages = App.cable.subscriptions.create 'RealTimeRailsChannel',
       console.log(value)
       $.ajax
         url: "/real_time_rails",
-        data:{"id":$(value).attr("id"), "action":action},
+        data:{"id":$(value).attr("id"), "rtr_action":action},
         type: 'GET',
         success: (data) ->
           $(value).html(data)
